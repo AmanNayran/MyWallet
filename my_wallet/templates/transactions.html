@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          
+          <div class="card-header">
+            <h3 class="text-center">Minhas Operações</h3>
+          </div>
+
+          <div class="card-body text-center">
+            <table>
+              <thead>
+                <tr>
+                  <th>Código da Ação</th>
+                  <th>Tipo de Operação</th>
+                  <th>Data</th>
+                  <th>Quantidade</th>
+                  <th>Preço Unitário</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for transaction in transactions %}
+                  <tr>
+                    <td>{{ transaction.stock.code }}</td>
+                    <td>{{ transaction.get_type_display }}</td>
+                    <td>{{ transaction.date }}</td>
+                    <td>{{ transaction.quantity }}</td>
+                    <td>{{ transaction.unit_price }}</td>
+                    <td>{{ transaction.total }}</td>
+                    <td><a href="{% url 'transaction_detail' transaction.id %}">Detalhes</a></td>
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td colspan="7">Nenhuma operação encontrada.</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+{% endblock %}

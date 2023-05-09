@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="text-center mt-3">
+    <h2>My Wallet</h2>
+    <p>Welcome, {{ user.username }}!</p>
+    <p>Perfil de risco: {{ user.investor.perfil_de_risco }}</p>
+  </div>
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+
+          <div class="card-header">
+            <h3 class="text-center">Todas as Ações</h3>
+          </div>
+
+          <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Código</th>
+                  <th>Nome da Empresa</th>
+                  <th>CNPJ da Empresa</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for stock in stocks %}
+                  <tr>
+                    <td>{{ stock.codigo }}</td>
+                    <td>{{ stock.nome_empresa }}</td>
+                    <td>{{ stock.cnpj_empresa }}</td>
+                  </tr>
+                {% empty %}
+                  <tr>
+                    <td colspan="3">Nenhuma ação cadastrada.</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+{% endblock %}
