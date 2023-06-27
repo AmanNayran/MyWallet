@@ -27,12 +27,12 @@
               <tbody>
                 {% for transaction in transactions %}
                   <tr>
-                    <td>{{ transaction.stock.code }}</td>
-                    <td>{{ transaction.get_type_display }}</td>
-                    <td>{{ transaction.date }}</td>
-                    <td>{{ transaction.quantity }}</td>
-                    <td>{{ transaction.unit_price }}</td>
-                    <td>{{ transaction.total }}</td>
+                    <td>{{ transaction.stock.codigo }}</td>
+                    <td>{{ transaction.tipo_operacao }}</td>
+                    <td>{{ transaction.data }}</td>
+                    <td>{{ transaction.quantidade }}</td>
+                    <td>{{ transaction.preco_unitario }}</td>
+                    <td>Sem registro</td>
                     <td><a href="{% url 'transaction_detail' transaction.id %}">Detalhes</a></td>
                   </tr>
                 {% empty %}

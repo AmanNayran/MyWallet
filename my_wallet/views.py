@@ -13,14 +13,22 @@ def dashboard(request):
     return render(request, 'dashboard.html', context)
 
 
-from .models import Transaction
+from .models import Transaction, Investor
 from .forms import TransactionForm
 
 @login_required
 def add_transaction(request):
     if request.method == 'POST':
+        stock_id = request.POST['stock']
+        stock = Stock.objects.get(pk=stock_id)
+        user = request.user
+        investidor = Investor.objects.get(user=user)
         form = TransactionForm(request.POST)
         if form.is_valid():
+            transacao = form.save(commit=False)
+            transacao.investor = investidor
+            transacao.stock = stock
+            # print(transacao)
             form.save()
             return redirect('dashboard')
     else:

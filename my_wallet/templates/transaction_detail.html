@@ -10,13 +10,13 @@
             </div>
 
             <div class="card-body text-center">
-                <p><strong>Código da Ação:</strong> {{ transaction.stock.code }}</p>
-                <p><strong>Tipo de Operação:</strong> {{ transaction.get_type_display }}</p>
-                <p><strong>Data:</strong> {{ transaction.date }}</p>
-                <p><strong>Quantidade:</strong> {{ transaction.quantity }}</p>
-                <p><strong>Preço Unitário:</strong> R$ {{ transaction.price }}</p>
-                <p><strong>Total:</strong> R$ {{ transaction.total }}</p>
-                <p><strong>Corretagem:</strong> R$ {{ transaction.brokerage }}</p>
+                <p><strong>Código da Ação:</strong> {{ transaction.stock.codigo }}</p>
+                <p><strong>Tipo de Operação:</strong> {{ transaction.tipo_operacao }}</p>
+                <p><strong>Data:</strong> {{ transaction.data }}</p>
+                <p><strong>Quantidade:</strong> {{ transaction.quantidade }}</p>
+                <p><strong>Preço Unitário:</strong> R$ {{ transaction.preco_unitario }}</p>
+                <p><strong>Total:</strong> Sem registro</p>
+                <p><strong>Corretagem:</strong> R$ {{ transaction.corretagem }}</p>
                 <p><strong>Investidor:</strong> {{ transaction.investor.user.username }}</p>
 
                 <br>

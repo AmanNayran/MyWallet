@@ -94,5 +94,8 @@ class Transaction(models.Model):
     investor = models.ForeignKey(Investor, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.stock} - {self.tipo_operacao} - {self.data}"
+        return f"{self.data}\n{self.stock}\n{self.quantidade}\n{self.preco_unitario}\n{self.tipo_operacao}\n{self.corretagem}\n{self.investor}"
 
+
+
+    
